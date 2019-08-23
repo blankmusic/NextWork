@@ -47,15 +47,19 @@ init（）方法
  此外Servlet容器会关联ServletConfig对象和web应用的servletContext对象。
 3 Servlet容器创建Servlet对象。
 4 Servlet容器调用Servlet对象的init（servletConfig config）方法
-通过初始化步骤，创建了Servlet对象的servletConfig对象，并将Servlet对象与的servletConfig对象连。而config与
-当前对象的context对象关联。当容器完成Servlet之后，Servlet对象只要通过getServletContext（）方法j就能得到ServletContext对象。
+通过初始化步骤，创建了Servlet对象的servletConfig对象，并将Servlet对象与的servletConfig对象连。
+而config与当前对象的context对象关联。当容器完成Servlet之后，Servlet对象只要通过getServletContext（）方法
+就能得到ServletContext对象。
 ```
 
 service（）方法
 
 ```text
-service()方法是执行实际任务的主要方法。Servlet容器（Tomcat等）调用service方法来处理来自客户端的请求。并把相应的结果返回给客户端。
-每次Servlet容器接收到哟个请求的时候，容器会产生一个新的线程并调用Servlet实例的Service方法。service方法会检查HTTP的请求类型 GET POST OUT DELET etc,并在合适的时候电泳doGET doPost doPutdDelete方法。所以在编码请求处理逻辑的时候，我们只要关注doGET doPost的具体实现即可。
+service()方法是执行实际任务的主要方法。Servlet容器（Tomcat等）调用service方法来处理来自客户端的请求。并把
+相应的结果返回给客户端。
+每次Servlet容器接收客户端的请求的时候，容器会产生一个新的线程并调用Servlet实例的Service方法。service方法会检查HTTP的请求类型 
+GET POST OUT DELET etc,并在合适的时候调用doGET doPost doPutdDelete方法。所以在编码请求处理逻辑的时候，我们只要关注
+doGET doPost的具体实现即可。
 ```
 
 destroy（）方法
